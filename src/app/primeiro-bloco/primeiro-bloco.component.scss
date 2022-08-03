@@ -1,0 +1,21 @@
+.spacer {
+  flex: 1;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.tabela{
+  display: inline-block;
+
+  background-color:white;
+
+  width: 50%;
+
+}
+.tabela th,td {
+  border: 1px solid;
+}
+
+.acertou{
+  background-color: rgb(80, 253, 6);
+}
