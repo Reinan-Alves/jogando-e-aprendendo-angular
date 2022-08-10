@@ -4,18 +4,26 @@
   margin-top: 10px;
 }
 
-.tabela{
+table {
   display: inline-block;
 
-  background-color:white;
+  background-color:rgb(233, 242, 243);
 
   width: 50%;
 
 }
-.tabela th,td {
+table th,td {
   border: 1px solid;
+  border-color: rgb(84, 95, 92);
 }
 
-.acertou{
-  background-color: rgb(80, 253, 6);
+
+.certo {
+  background-color: rgb(6, 15, 2);
+}
+.errado{
+  background-color:rgb(211, 152, 142)
+}
+.semResposta{
+  background-color: aquamarine;
 }

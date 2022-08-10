@@ -1,6 +1,9 @@
 <div class="spacer">
   <h3>BLOCO 001</h3>
-  <table class="tabela">
+  <p style="color: red">
+    *Algumas respostas precisam de atenção ao case-sensitive
+  </p>
+  <table>
     <thead>
       <tr>
         <th>Nº</th>
@@ -8,78 +11,20 @@
         <th>Resposta</th>
       </tr>
     </thead>
-    <tr>
-      <td>01</td>
+    <tr *ngFor="let pergunta of perguntas">
       <td>
-        Complete. Comando para criar uma aplicação angular? ng *** nome do
-        projeto.
-      </td>
-      <td><input [(ngModel)]="resposta01" /></td>
-    </tr>
-    <tr *ngIf="resposta01 == 'new'">
-      <td>02</td>
-      <td>
-        Complete. Abreviação usada para criar um component? ng *** component
+        {{ pergunta.id }}
       </td>
       <td>
-        <input
-          type="text"
-          placeholder="Digite sua resposta"
-          [(ngModel)]="resposta02"
-        />
-      </td>
-    </tr>
-    <tr *ngIf="resposta02 == 'g'">
-      <td>03</td>
-      <td>
-        São blocos de aplicações contendo modulos,estrutura e estilizações.
-        Digite o número. 1)Module 2)Service 3)Component 4)Decorator
+        {{ pergunta.texto }}
       </td>
       <td>
-        <input
-          type="text"
-          placeholder="Digite o numero"
-          [(ngModel)]="resposta03"
-        />
-      </td>
-    </tr>
-    <tr *ngIf="resposta03 == '3'">
-      <td>04</td>
-      <td>
-        Nome do ciclo de vida carregado na inicialização de um componente?
-        ps.Atenção ao case-sensitive.
-      </td>
-      <td>
-        <input
-          type="text"
-          placeholder="Digite sua resposta"
-          [(ngModel)]="resposta04"
-        />
-      </td>
-    </tr>
-    <tr *ngIf="resposta04 == 'ngOnInit'">
-      <td>05</td>
-      <td>
-        Data binding que possibilita escultar eventos do template e possibilita
-        executar um método no componente.
-      </td>
-      <td>
-        <input
-          type="text"
-          placeholder="Digite sua resposta"
-          [(ngModel)]="resposta05"
-        />
-      </td>
-    </tr>
-    <tr *ngIf="(resposta05 | lowercase) == 'event binding'">
-      <td>00</td>
-      <td>MUITO BEM! Estamos apenas começando, em breve tem mais</td>
-      <td>
-        <input
-          type="text"
-          placeholder="Em breve uma nova pergunta"
-          [(ngModel)]="resposta06"
-        />
+        <input #suaResposta />
+        <button
+          (click)="conferirResposta(suaResposta.value, pergunta.resposta)"
+        >
+          confirmar
+        </button>
       </td>
     </tr>
   </table>

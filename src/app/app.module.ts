@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { PerguntasService } from './services/perguntas.service';
 
 @NgModule({
   declarations: [AppComponent, HeadComponent, PrimeiroBlocoComponent],
@@ -21,7 +22,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatSortModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [PerguntasService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
