@@ -19,7 +19,7 @@
         {{ pergunta.texto }}
       </td>
       <td>
-        <input #suaResposta />
+        <input #suaResposta [ngClass]="{certo, errado, semResposta}" />
         <button
           (click)="conferirResposta(suaResposta.value, pergunta.resposta)"
         >
