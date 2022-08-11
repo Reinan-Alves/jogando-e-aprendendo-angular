@@ -1,36 +1,39 @@
-<div class="spacer">
-<<<<<<< HEAD
-  <h3>BLOCO 001</h3>
-  <p style="color: red">
-    *Algumas respostas precisam de atenção ao case-sensitive
-  </p>
-  <table>
-=======
-  <h3>BLOCO 0001</h3>
-  <table class="tabela">
->>>>>>> 7a263b1cd1207a6185f06aad307d2b44c251837f
-    <thead>
-      <tr>
-        <th>Nº</th>
-        <th>Pergunta</th>
-        <th>Resposta</th>
-      </tr>
-    </thead>
-    <tr *ngFor="let pergunta of perguntas">
-      <td>
-        {{ pergunta.id }}
-      </td>
-      <td>
-        {{ pergunta.texto }}
-      </td>
-      <td>
-        <input #suaResposta [ngClass]="{certo, errado, semResposta}" />
-        <button
-          (click)="conferirResposta(suaResposta.value, pergunta.resposta)"
-        >
-          confirmar
-        </button>
-      </td>
-    </tr>
-  </table>
+<div class="espaco">
+  <div class="central">
+    <p style="color: red">
+      *Algumas respostas precisam de atenção ao case-sensitive
+    </p>
+    <table>
+      <h3>BLOCO 001</h3>
+      <table class="tabela">
+        <thead>
+          <tr>
+            <th>Nº</th>
+            <th>Pergunta</th>
+            <th>Resposta</th>
+          </tr>
+        </thead>
+        <tr *ngFor="let pergunta of perguntas">
+          <td>
+            {{ pergunta.id }}
+          </td>
+          <td>
+            {{ pergunta.texto }}
+          </td>
+          <td>
+            <input
+              id="{{ pergunta.id }}"
+              #suaResposta
+              [ngClass]="{certo, errado}"
+            />
+            <button
+              (click)="conferirResposta(suaResposta.value, pergunta.resposta)"
+            >
+              ENVIAR
+            </button>
+          </td>
+        </tr>
+      </table>
+    </table>
+  </div>
 </div>

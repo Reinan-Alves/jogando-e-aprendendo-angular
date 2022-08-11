@@ -1,3 +1,4 @@
+import { style } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 
 import { PerguntasService } from '../services/perguntas.service';
@@ -11,7 +12,7 @@ export class PrimeiroBlocoComponent implements OnInit {
   suaResposta: string = '';
   certo: boolean = false;
   errado: boolean = false;
-  semResposta: boolean = true;
+
   perguntas = [
     {
       id: 0,
@@ -28,18 +29,14 @@ export class PrimeiroBlocoComponent implements OnInit {
   }
 
   conferirResposta(suaResposta: string, resposta: string) {
+    console.log(suaResposta);
+    console.log(resposta);
     if (suaResposta == resposta) {
       this.certo = true;
       this.errado = false;
-      this.semResposta = false;
-    } else if (suaResposta != resposta) {
-      this.certo = false;
-      this.errado = true;
-      this.semResposta = false;
     } else {
       this.certo = false;
-      this.errado = false;
-      this.semResposta = false;
+      this.errado = true;
     }
   }
 }
