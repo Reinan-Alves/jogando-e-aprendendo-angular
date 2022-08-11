@@ -7,14 +7,14 @@ export class PerguntasService {
       {
         id: 1,
         texto:
-          'Complete. Abreviação usada para criar um component? ng ___ component',
+          'Complete: Comando usado para criar um novo projeto angular. ng _ <nome-do-projeto>',
         resposta: 'new',
         liberada: true,
       },
       {
         id: 2,
         texto:
-          'Complete. Abreviação usada para criar um component? ng _ component',
+          'Complete: Abreviação usada para criar um component. ng _ component',
         resposta: 'g',
         liberada: false,
       },
