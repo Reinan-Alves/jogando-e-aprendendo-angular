@@ -1,40 +1,37 @@
 <div class="espaco">
   <div class="central">
-    <p style="color: red">
+    <p style="color: rgb(255, 255, 255)">
       *Atenção para o uso de letras maiúsculas e minúsculas em algumas
       respostas.
     </p>
-    <table>
-      <h3>BLOCO 001</h3>
-      <table class="tabela">
-        <thead>
-          <tr>
-            <th>Nº</th>
-            <th>Pergunta</th>
-            <th>Resposta</th>
-          </tr>
-        </thead>
-        <tr *ngFor="let pergunta of perguntas">
-          <td>
-            {{ pergunta.id }}
-          </td>
-          <td>
-            {{ pergunta.texto }}
-          </td>
-          <td>
-            <input
-              id="{{ pergunta.id }}"
-              #suaResposta
-              [ngClass]="{certo, errado}"
-            />
-            <button
-              (click)="conferirResposta(suaResposta.value, pergunta.resposta)"
-            >
-              ENVIAR
-            </button>
-          </td>
+    <h3 style="color: rgb(255, 255, 255)">BLOCO 001</h3>
+    <table class="tabela">
+      <thead>
+        <tr>
+          <th>Nº</th>
+          <th>Pergunta</th>
+          <th>Resposta</th>
         </tr>
-      </table>
+      </thead>
+      <tr *ngFor="let pergunta of perguntas">
+        <td>
+          {{ pergunta.id }}
+        </td>
+        <td>
+          {{ pergunta.texto }}
+        </td>
+        <td>
+          <input #suaResposta />
+          <button
+            (click)="conferirResposta(suaResposta.value, pergunta.resposta)"
+          >
+            CONFERIR
+          </button>
+        </td>
+      </tr>
     </table>
+    <section class="led" [ngClass]="{certo, errado,emBranco}">
+      <strong>LED INDICATIVO DE RESPOSTA</strong>
+    </section>
   </div>
 </div>

@@ -12,6 +12,7 @@ export class PrimeiroBlocoComponent implements OnInit {
   suaResposta: string = '';
   certo: boolean = false;
   errado: boolean = false;
+  emBranco: boolean = false;
 
   perguntas = [
     {
@@ -34,9 +35,14 @@ export class PrimeiroBlocoComponent implements OnInit {
     if (suaResposta == resposta) {
       this.certo = true;
       this.errado = false;
+      this.emBranco = false;
     } else {
       this.certo = false;
       this.errado = true;
+      this.emBranco = false;
+    }
+    if (!suaResposta) {
+      this.emBranco = true;
     }
   }
 }

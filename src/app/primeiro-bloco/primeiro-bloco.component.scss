@@ -44,6 +44,7 @@ th{
 
 
 
+
 input{
   background-color: white;
     &[type="text"]{
@@ -63,13 +64,29 @@ input{
       border-radius: 30px;
 
     }
+    .led{
+      width: 20%;
+      height:10%;
+      color:#1461ad;
+      background-color: white;
+      border-radius: 150px;
+      margin:auto;
+      border: 5px solid white;
+
+    }
     .certo {
 
-      border: 2px solid;
-      border-color: aquamarine;
+      border: 5px solid;
+      border-color: white;
+      background-color: #39ff14;
     }
     .errado{
-      border: 2px solid red;
+      border: 5px solid white;
+      background-color: #fc1723;
 
+    }
+    .emBranco{
+      background-color: white;
+      border: 5px solid white;
     }
 
