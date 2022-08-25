@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { CommonModule } from '@angular/common';
+import{HttpClientModule} from'@angular/common/http';
+
+//components
 import { AppComponent } from './app.component';
 import { HeadComponent } from './head/head.component';
 import { PrimeiroBlocoComponent } from './primeiro-bloco/primeiro-bloco.component';
@@ -21,6 +25,14 @@ import { PerguntasService } from './services/perguntas.service';
     MatPaginatorModule,
     MatSortModule,
     FormsModule,
+    HttpClientModule,
+    CommonModule
+
+
+  ],
+  exports:[PrimeiroBlocoComponent
+
+
   ],
   providers: [PerguntasService],
   bootstrap: [AppComponent],

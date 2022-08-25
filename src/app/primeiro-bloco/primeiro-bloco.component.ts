@@ -1,6 +1,5 @@
-import { style } from '@angular/animations';
+import { ListaDePerguntas } from './../module/lista-de-perguntas';
 import { Component, OnInit } from '@angular/core';
-
 import { PerguntasService } from '../services/perguntas.service';
 
 @Component({
@@ -9,40 +8,80 @@ import { PerguntasService } from '../services/perguntas.service';
   styleUrls: ['./primeiro-bloco.component.scss'],
 })
 export class PrimeiroBlocoComponent implements OnInit {
-  suaResposta: string = '';
-  certo: boolean = false;
-  errado: boolean = false;
-  emBranco: boolean = false;
+  public listaDePerguntas: Array<ListaDePerguntas> = [];
 
-  perguntas = [
-    {
-      id: 0,
-      texto: '',
-      resposta: '',
-      liberada: false,
-    },
-  ];
+  suaResposta: string = '';
+  bloquear: boolean = false;
+  acertos: number = 0;
+  erros: number = 0;
+  respondidas: number = 0;
+  pontuacao: number = 0;
+
+  cronometro: any = 0;
+  tempo: number = 0;
 
   constructor(private perguntasService: PerguntasService) {}
 
   ngOnInit(): void {
-    this.perguntas = this.perguntasService.getPerguntas();
+    this.perguntasService.listaDePerguntas().subscribe({
+      next: (res) => (this.listaDePerguntas = res),
+      error: (err) => console.log(err),
+    });
   }
 
-  conferirResposta(suaResposta: string, resposta: string) {
-    console.log(suaResposta);
-    console.log(resposta);
+  // gera o tempo de 40s por perguntas
+  geraTempo() {
+    this.listaDePerguntas.forEach(() => {
+      this.tempo = this.tempo + 10;
+      return this.tempo;
+    });
+  }
+  conferirResposta(
+    suaResposta: string,
+    resposta: string,
+    esteInput: any,
+    esteButton: any
+  ) {
     if (suaResposta == resposta) {
-      this.certo = true;
-      this.errado = false;
-      this.emBranco = false;
+      this.acertos++;
+      esteInput.style.backgroundColor = '#39ff14';
+      esteInput.disabled = true;
+      esteButton.disabled = true;
     } else {
-      this.certo = false;
-      this.errado = true;
-      this.emBranco = false;
+      this.erros++;
+      esteInput.style.backgroundColor = '#fc1723';
+      esteInput.disabled = true;
+      esteButton.disabled = true;
     }
     if (!suaResposta) {
-      this.emBranco = true;
+      esteInput.style.backgroundColor = 'white';
+      esteInput.disabled = false;
+      esteButton.disabled = false;
     }
+    this.respondidas = this.acertos + this.erros;
+    this.pontuacao = (this.acertos / this.respondidas) * 100 * this.acertos;
+  }
+  public iniciar() {
+    this.bloquear = true;
+    this.iniciaValores();
+    this.geraTempo();
+
+    this.cronometro = setInterval(() => {
+      this.tempo--;
+      if (this.tempo < 0) {
+        this.parar();
+      }
+    }, 1000);
+  }
+  public parar() {
+    this.bloquear = false;
+    clearInterval(this.cronometro);
+  }
+
+  public iniciaValores() {
+    this.tempo = 0;
+    this.acertos = 0;
+    this.respondidas = 0;
+    this.erros = 0;
   }
 }

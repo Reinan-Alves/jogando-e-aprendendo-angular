@@ -21,6 +21,17 @@ background-color: #1976d2;
 
 
 }
+.controladores{
+  width: 50%;
+  height:10%;
+  color:#ffffff;
+
+
+  margin:auto;
+
+  font-weight: bold;
+
+}
 
 table {
   width: 100%;
@@ -43,7 +54,9 @@ th{
 }
 
 
-
+p {
+  color: white;
+}
 
 input{
   background-color: white;
@@ -64,16 +77,8 @@ input{
       border-radius: 30px;
 
     }
-    .led{
-      width: 20%;
-      height:10%;
-      color:#1461ad;
-      background-color: white;
-      border-radius: 150px;
-      margin:auto;
-      border: 5px solid white;
 
-    }
+
     .certo {
 
       border: 5px solid;
@@ -89,4 +94,5 @@ input{
       background-color: white;
       border: 5px solid white;
     }
+
 
